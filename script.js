@@ -21,8 +21,7 @@ let computer = document.querySelector('.computerChoice');
 let scores = document.querySelector('.scores');
 let userScore = 0;
 let computerScore = 0;
-let resetButton;
-// let promptInput;
+
 
 function computerPlay(){
     // randomly return either Rock, Paper or Scissors
@@ -31,7 +30,7 @@ function computerPlay(){
     // console.log(options[Math.floor(Math.random() * options.length)]);
     return options[Math.floor(Math.random() * options.length)];
     
-}s
+}
 
 function playRound(playerSelection, computerSelection){  
     
