@@ -1,26 +1,10 @@
-
-
-
-// function checkUserSelection(){    
-//     //CHECKING IF BOTH ARE TRUE - IS THERE A VALUE IN USERINPUT
-//     //If so, hold the value entered by the user in the userSelection variable. Make this value the first parameter of playRound() and also call that function.
-//     if (userInput && userInput.value) {
-//                 let userSelection = userInput.value;
-//                 console.log(userSelection);
-//                 playRound(userSelection, computerPlay()); 
-
-//     }
-//     //otherwise, prompt the user to enter some text.
-//     else{
-//         result.textContent = "Please enter your weapon of choice above."
-//     }
-// }
-
 let result = document.querySelector('.result');
 let computer = document.querySelector('.computerChoice');
 let scores = document.querySelector('.scores');
 let userScore = 0;
 let computerScore = 0;
+scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
+computer.textContent = "First to score 5 points wins - GO!";
 
 
 function computerPlay(){
@@ -32,129 +16,100 @@ function computerPlay(){
     
 }
 
-function playRound(playerSelection, computerSelection){  
+  document.querySelectorAll('.options').forEach(function(element){
+    element.addEventListener('click', function() {
+      result.style.cssText="color:white; font-size:30px; font-weight:normal;";
+      scores.style.cssText="font-weight:normal;";
+      const userSelection = this.id;
+      playRound(userSelection, computerPlay());
+    });
+  });
+
+
+function playRound(playerSelection, computerSelection){     
     
     if(playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'ROCK'){
-        // computer.textContent = "Rock VS. Rock";
-
+        computer.textContent = "Rock VS. Rock";
         result.textContent = "Oops! It's a tie";
-        console.log("Oops! It's a tie");
-
-        scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Oops! It's a tie";
-        
+        scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;        
      }
      else if(playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'PAPER'){
         computerScore += 1;
-        // computer.textContent = "Rock VS. Paper";
-
+        computer.textContent = "Rock VS. Paper";
         result.textContent = "You lose! Paper beats Rock.";
-        console.log("You lose! Paper beats Rock.");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "You lose! Paper beats Rock.";
     }
     else if(playerSelection.toUpperCase() === 'ROCK' && computerSelection.toUpperCase() === 'SCISSORS'){
         userScore += 1;
-        // computer.textContent = "Rock VS. Scissors";
-
+        computer.textContent = "Rock VS. Scissors";
         result.textContent = "You win! Rock defeats Scissors!";
-        console.log("You win! Rock defeats Scissors!");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "You win! Rock defeats Scissors!";
     }
     else if(playerSelection.toUpperCase() === 'PAPER' && computerSelection.toUpperCase() === 'PAPER'){
-        // computer.textContent = "Paper VS. Paper";
-
+        computer.textContent = "Paper VS. Paper";
         result.textContent = "Oops! It's a tie";
-        console.log("Oops! It's a tie");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Oops! It's a tie";
     }
     else if(playerSelection.toUpperCase() === 'PAPER' && computerSelection.toUpperCase() === 'ROCK'){
         userScore += 1;
-        // computer.textContent = "Paper VS. Rock";
-
+        computer.textContent = "Paper VS. Rock";
         result.textContent = "Congrats! You win - Paper beats Rock!";
-        console.log("Congrats! You win - Paper beats Rock!");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Congrats! You win - Paper beats Rock!";
     }
     else if(playerSelection.toUpperCase() === 'PAPER' && computerSelection.toUpperCase() === 'SCISSORS'){
         computerScore += 1;
-        // computer.textContent = "Paper VS. Scissors";
-
+        computer.textContent = "Paper VS. Scissors";
         result.textContent = "Oh no, you lose. Scissors beats Paper";
-        console.log("Oh no, you lose. Scissors beats Paper");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Oh no, you lose. Scissors beats Paper";
     }
     else if(playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toUpperCase() === 'SCISSORS'){
-        // computer.textContent = "Scissors VS. Scissors";
-
+        computer.textContent = "Scissors VS. Scissors";
         result.textContent = "Oops! It's a tie";
-        console.log("Oops! It's a tie");
-
         scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Oops! It's a tie";
     }
     else if(playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toUpperCase() === 'ROCK'){
         computerScore += 1;
-        // computer.textContent = "Scissors VS. Rock";
-
+        computer.textContent = "Scissors VS. Rock";
         result.textContent = "Aw you lose. Rock beats Scissors.";
-        console.log("Aw you lose. Rock beats Scissors.");
-
-        scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Aw you lose. Rock beats Scissors.";
     }
     else if(playerSelection.toUpperCase() === 'SCISSORS' && computerSelection.toUpperCase() === 'PAPER'){
         userScore += 1;
-        // computer.textContent = "Scissors VS. Paper";
-
+        computer.textContent = "Scissors VS. Paper";
         result.textContent = "Woohoo! Scissors beats Paper";
-        console.log("Woohoo! Scissors beats Paper");
-
-        scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-        console.log("Your Score: " + userScore + ", Computer Score: " + computerScore);
-        return "Woohoo! Scissors beats Paper";        
+        scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;   
     }
     else{
-        result.textContent = "Oh something went wrong. Try again!";
-        return "Oh something went wrong. Try again!";  
+        result.textContent = "Oh something went wrong. Try again!"; 
+    }
+
+    if(userScore === 5 || computerScore === 5){
+        if(userScore > computerScore){
+            scores.style.cssText="font-weight:bold";
+            result.style.cssText="color:orange; font-size:60px; font-weight:bold; font-family: 'Playfair Display', serif;";
+            result.textContent = "Game Over! Congratulations! You won!";            
+            userScore = 0;
+            computerScore = 0;
+            //Or prompt a function that shows the result and then resets the game
+
+        }
+        else if(computerScore > userScore){
+            scores.style.cssText="font-weight:bold";
+            result.style.cssText="color:orange; font-size:60px; font-weight:bold; font-family: 'Playfair Display', serif;";
+            result.textContent = "Game Over! You lost. Try again";
+            userScore = 0;
+            computerScore = 0;
+            //Or prompt a function that shows the result and then resets the game
+ 
+        }
+        else{
+            scores.style.cssText="font-weight:bold";
+            result.style.cssText="color:orange; font-size:60px; font-weight:bold; font-family: 'Playfair Display', serif;";
+            result.textContent = "Game Over! It's a tie! Try again?";
+            userScore = 0;
+            computerScore = 0;   
+            //Or prompt a function that shows the result and then resets the game
+        }
     }
  }
 
-
-function game(){
-    for (i=0; i <= 4; i++){     
-        let promptInput = prompt("Rock, Paper or Scissors?");  
-        playRound(promptInput, computerPlay());        
-    }
-    if(userScore > computerScore){
-        console.log("Game Over! Congratulations! You won!");
-        result.textContent = "Game Over! Congratulations! You won!";
-    }
-    else if(computerScore > userScore){
-        console.log("Game Over! Bad luck. You lost.");
-        result.textContent = "Game Over! Bad luck. You lost.";
-    }
-    else{
-        console.log("Game Over! It's a tie! Try again?")
-        result.textContent = "Game Over! It's a tie! Try again?";
-    }
-
-}
 

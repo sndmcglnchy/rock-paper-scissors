@@ -5,19 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors Game</h1>
-    <p>You will play a 5 round game. Highest score wins!</p>
+    <h1>Choose Your Weapon:</h1>
+    <!-- <p>You will play a 5 round game. Highest score wins!</p> -->
     <!-- <label for="user-input">Enter Rock, Paper of Scissors: </label>
     <input type="text" name="user-input" id="user-input" class="user-input"/>
     <input id="button" class="button" type="submit"  name="button" value="Play"/> -->
     <!-- onclick="game();" -->
-    <input class="button" type="submit" value="Start Game" name="button" onclick="game();"/>
-    <p class="computerChoice"></p>
-    <p class="result"></p>
-    <p class="scores"></p>
+    <div class="image-container">
+        <div class="options" id="rock">
+            <img src="images/stone.png" >
+            <p>ROCK</p>
+        </div>
+        <div class="options" id="paper" > 
+            <img src="images/paper-plane.png" >
+            <p>PAPER</p>
+        </div> 
+        <div class="options" id="scissors">
+            <img src="images/scissors1.png" >
+            <p>SCISSORS</p>
+        </div>
+    </div>
+
+    <div class="info">
+        <p class="scores"></p>
+        <p class="computerChoice"></p>
+        <p class="result"></p>
+        
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
