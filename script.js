@@ -4,7 +4,7 @@ let scores = document.querySelector('.scores');
 let userScore = 0;
 let computerScore = 0;
 scores.textContent = "Your Score: " + userScore + ", Computer Score: " + computerScore;
-computer.textContent = "First to score 5 points wins - GO!";
+computer.textContent = "First to score 5 points wins!";
 
 
 function computerPlay(){
